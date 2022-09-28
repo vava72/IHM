@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(0deg, #252525, #C4C4C4);
+}
+.container{
+    max-width: 720px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+}
+
+.container .title{
+    font-size: 30px;
+    font-weight: 500;
+    position: relative;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form .user-details .input-box{
+    width: calc(100% / 2 - 20px);
+}
+
+.user-details .input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .input-box input{
+    height: 35px;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #ccc
+}
+
+
+/* PARTIE POUR LES ERREURS */
+
+#errorNom{
+    color: red;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: none;
+}
+#errorPrenom{
+    color: red;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+#errorID{
+    color: red;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+#errormail{
+    color: red;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+#errorConfirmMail{
+    color: red;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+#errorPSW{
+    color: red;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+#errorConfPSW{
+    color: red;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+@media (max-width: 1000px){
+    .user-details>div{
+        width: 100%;
+    }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+ 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Inscription</div>
+        <form action="#" id="inscri-form">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Nom</span>
+                    <input type="text" id="nom" placeholder="Entrer votre nom" required>
+                    <p id="errorNom">Pas de chiffre !</p>
+                </div>
+                <div class="input-box">
+                    <span class="details">Prénom</span>
+                    <input type="text" id="prenom" placeholder="Entrer votre prénom" required>
+                    <p id="errorPrenom">Pas de chiffre !</p>
+                </div>
+                <div class="input-box">
+                    <span class="details">Adresse</span>
+                    <input type="text" placeholder="Entrer votre adresse" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Ville</span>
+                    <input type="text" placeholder="Entrer votre ville" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Code Postal</span>
+                    <input type="text" placeholder="Entrer votre code postal" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Identifiant</span>
+                    <input type="text" id="id" name="id" pattern="^[A-Za-z]+$" placeholder="Entrer votre identifiant" minlength="5" maxlength="8">
+                    <p id="errorID">Entrez un identifiant ayant entre 5 et 8 caractères, avec une majuscule et sans chiffre</p>
+                </div>
+                <div class="input-box">
+                    <span class="details">Mail</span>
+                    <input type="email" id="mail" onCopy="return false" placeholder="Entrer votre mail" required>
+                    <p id="errormail">Entrer une adresse mail valide</p>
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirmation du mail</span>
+                    <input type="email" id="confirmMail" onPaste="return false" placeholder="Entrer à nouveau votre mail" required>
+                    <p id="errorConfirmMail">Entrer la même adresse mail</p>
+                </div>
+                <div class="input-box">
+                    <span class="details">Mot de passe</span>
+                    <input type="password" id="psw" placeholder="Entrer votre mot de passe" maxlength=12 required>
+                    <p id="errorPSW">Le mot de passe doit avoir au moins un chiffre et faire entre 5 et 12 caractères.</p>
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirmation mot de passe</span>
+                    <input type="password" id="confirmPsw" placeholder="Entrer à nouveau votre mot de passe" maxlength=12 required>
+                    <p id="errorConfPSW">Entrer les même mots de passes !</p>
+                </div>
+            </div>
+            <div class="showPW">
+                <input type="checkbox" id onclick="VerifPassword()">Afficher le mot de passe
+            </div>
+            <div class="button">
+                <input type="submit" name="btn" value="Inscription">
+            </div>
+        </form>
+    </div>
+    <script src="script.js" type="text/javascript"></script>  
+</body>
+</html>
