@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background: linear-gradient(0deg, #252525, #C4C4C4);
+    background: linear-gradient(0deg, blue, cyan);
 }
 .container{
     max-width: 720px;

@@ -1,12 +1,12 @@
 function VerifPassword() {
-    var x = document.getElementById("psw");
-    var y = document.getElementById("confirmPsw")
+    var psw = document.getElementById("psw");
+    var confirmpsw = document.getElementById("confirmPsw")
     if (x.type === "password" && y.type === "password") {
-      x.type = "text";
-      y.ype = "text";
+        psw.type = "text";
+        confirmpsw.ype = "text";
     } else {
-      x.type = "password";
-      y.type = "text";
+        psw.type = "password";
+        confirmpsw.type = "password";
     }
   }
 

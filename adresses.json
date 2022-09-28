@@ -1,0 +1,27 @@
+[
+    {
+        "Ville" : "Le Mans",
+        "Code Postal" : "72100",
+        "adresse" : "26 rue d'alsace"
+    },
+    {
+        "Ville" : "Le Mans",
+        "Code Postal" : "72100",
+        "adresse" : "21 rue des maraichers"
+    },
+    {
+        "Ville" : "Laval",
+        "Code Postal" : "53000",
+        "adresse" : "5 rue de l'alma"
+    },
+    {
+        "Ville" : "Laval",
+        "Code Postal" : "53000",
+        "adresse" : "52 rue des Docteurs Calmette et Guérin"
+    },
+    {
+        "Ville" : "Lannion",
+        "Code Postal" : "22300",
+        "adresse" : "13 rue Félix Le Dantec"
+    }
+]
