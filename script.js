@@ -1,21 +1,37 @@
-function VerifPassword() {
-    var psw = document.getElementById("psw");
-    var confirmpsw = document.getElementById("confirmPsw")
-    if (x.type === "password" && y.type === "password") {
-        psw.type = "text";
-        confirmpsw.ype = "text";
+const mdp = document.getElementById("psw");
+const togglePassword = document.getElementById("toggle-password");
+
+togglePassword.addEventListener("click", toggleClicked);
+
+function toggleClicked() {  
+    mdp.classList.toggle("visible");
+    if (this.checked) {
+        mdp.type = "text";
     } else {
-        psw.type = "password";
-        confirmpsw.type = "password";
+        mdp.type = "password";
     }
   }
+
+const mdpconfirm = document.getElementById("confirmPsw");
+const togglePasswordConf = document.getElementById("toggle-passwordConfirm");
+
+togglePasswordConf.addEventListener("click", toggleConfClicked);
+
+function toggleConfClicked() {  
+    mdpconfirm.classList.toggle("visible");
+    if (this.checked) {
+        mdpconfirm.type = "text";
+    } else {
+        mdpconfirm.type = "password";
+    }
+  }
+
 
 let id = document.getElementById('id');
 let loginForm = document.getElementById('inscri-form');
 let errorID = document.getElementById('errorID');
 
 id.addEventListener('input', function(evt){
-    console.log(evt.target.value);
     let patternID1= /^[A-Z][a-z]*$/;
     let patternID2 = /^.{5,8}$/;
     let currentvalue = evt.target.value;
@@ -42,7 +58,6 @@ let nom = document.getElementById('nom');
 let errorNom = document.getElementById('errorNom');
 
 nom.addEventListener('input', function(evt){
-    console.log(evt.target.value);
     let patternName= /^[A-Z a-z]*$/;
     let currentvalue = evt.target.value;
     let idValide = patternName.test(currentvalue);
@@ -56,34 +71,15 @@ nom.addEventListener('input', function(evt){
     } 
 })
 
-let prenom = document.getElementById('prenom');
-let errorPrenom = document.getElementById('errorPrenom');
-
-prenom.addEventListener('input', function(evt){
-    console.log(evt.target.value);
-    let patternID1= /^[A-Z a-z]*$/;
-    let currentvalue = evt.target.value;
-    let idValide = patternID1.test(currentvalue);
-
-    if(idValide == false){
-        errorPrenom.style.display = "block";
-        prenom.style.borderColor = "red";
-    } else {
-        errorPrenom.style.display = "none";
-        prenom.style.borderColor = "green";
-    } 
-})
-
 let mail = document.getElementById('mail');
 let errormail = document.getElementById('errormail');
 
 mail.addEventListener('input', function(evt){
-    console.log(evt.target.value);
-    let patternID1= /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    let patternMail= /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     let currentvalue = evt.target.value;
-    let mailValide = patternID1.test(currentvalue);
+    let mailValide = patternMail.test(currentvalue);
 
-    if(mailValide == false){
+    if(mailValide == false ){
         errormail.style.display = "block";
         mail.style.borderColor = "red";
     } else {
@@ -114,7 +110,7 @@ password.addEventListener('input', function(evt){
     console.log(evt.target.value);
     let pswValide = patternPSW.test(currentvalue);
 
-    if(pswValide == false){
+    if(pswValide == false && password.value != passwordConfirm.value){
         errorPSW.style.display = "block";
         password.style.borderColor = "red";
     } else {
@@ -134,4 +130,56 @@ passwordConfirm.addEventListener('input', function(evt){
         errorConfirmPSW.style.display = "block";
         passwordConfirm.style.borderColor = "red";
     }
+
 })
+
+//Partie pour l'adresse, tutoriel suivi ici afin d'apprendre : "https://monpetitdev.fr/javascript-comment-mettre-en-place-une-saisie-dadresse-predictive-gratuitement/"
+
+var requestURL = 'https://api-adresse.data.gouv.fr/search/?q=';
+var select = document.getElementById("selection");
+window.onload = function() {
+    document.getElementById("adresse").addEventListener("input", autocompleteAdresse, false);
+};
+function autocompleteAdresse() {
+    var inputValue = document.getElementById("adresse").value;
+    if (inputValue) {
+        fetch(setQuery(inputValue))
+            .then(function (response) {
+                response.json().then(function (data) {
+                    displaySelection(data);
+                });
+            });
+    } else {
+        select.style.display = "none";
+    }
+};
+function displaySelection(response) {
+    if (Object.keys(response.features).length > 0) {
+        select.style.display = "block";
+        select.removeChild(select.firstChild);
+        var ul = document.createElement('ul');
+        select.appendChild(ul);
+        response.features.forEach(function (element) {
+            var li = document.createElement('li');
+            var ligneAdresse = document.createElement('span');
+            var infosAdresse = document.createTextNode(element.properties.postcode + ' ' + element.properties.city);
+            ligneAdresse.innerHTML = element.properties.name;
+            li.onclick = function () { selectAdresse(element); };
+            li.appendChild(ligneAdresse);
+            li.appendChild(infosAdresse);
+            ul.appendChild(li);
+        });
+    } else {
+        select.style.display = "none";
+    }
+}
+function selectAdresse(element) {
+    document.getElementById("adresse").value = element.properties.name + "\r\n" + element.properties.postcode + " " + element.properties.city;
+    select.style.display = "none";
+    document.getElementById("resAdresse").value = element.properties.name;
+    document.getElementById("CP").value = element.properties.postcode;
+    document.getElementById("Ville").value = element.properties.city;
+}
+function setQuery(value) {
+    return requestURL + value + "?type=housenumber&autocomplete=1";
+}

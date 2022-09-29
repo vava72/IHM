@@ -14,26 +14,29 @@
         <form action="#" id="inscri-form">
             <div class="user-details">
                 <div class="input-box">
-                    <span class="details">Nom</span>
+                    <span class="details">Nom et Prénom</span>
                     <input type="text" id="nom" placeholder="Entrer votre nom" required>
                     <p id="errorNom">Pas de chiffre !</p>
                 </div>
                 <div class="input-box">
-                    <span class="details">Prénom</span>
-                    <input type="text" id="prenom" placeholder="Entrer votre prénom" required>
-                    <p id="errorPrenom">Pas de chiffre !</p>
+                    <div class="test">
+                        <label for="adresse">Saisisez votre adresse :</label>
+                        <input type="text" name="adresse" id="adresse" placeholder="Entrer votre adresse" required>
+                        <div id="selection" style="display: none;" class="dropdown">
+                        </div>
+                    </div>
                 </div>
                 <div class="input-box">
                     <span class="details">Adresse</span>
-                    <input type="text" id="adresse" placeholder="Entrer votre adresse" required>
+                    <input type="text" id="resAdresse" placeholder="Votre adresse" disabled>
                 </div>
                 <div class="input-box">
                     <span class="details">Ville</span>
-                    <input type="text" placeholder="Entrer votre ville" required>
+                    <input type="text" id="Ville" placeholder="Votre ville" disabled>
                 </div>
                 <div class="input-box">
                     <span class="details">Code Postal</span>
-                    <input type="text" placeholder="Entrer votre code postal" required>
+                    <input type="text" id="CP" placeholder="Votre code postal" disabled>
                 </div>
                 <div class="input-box">
                     <span class="details">Identifiant</span>
@@ -53,22 +56,24 @@
                 <div class="input-box">
                     <span class="details">Mot de passe</span>
                     <input type="password" id="psw" placeholder="Entrer votre mot de passe" maxlength=12 required>
-                    <p id="errorPSW">Le mot de passe doit avoir au moins un chiffre et faire entre 5 et 12 caractères.</p>
+                    <input type="checkbox" id="toggle-password" />
+                    <label for="toggle-password">Voir</label>
+                    <p id="errorPSW">Le mot de passe doit avoir au moins un chiffre et faire entre 5 et 12 caractères et être le même.</p>
                 </div>
                 <div class="input-box">
                     <span class="details">Confirmation mot de passe</span>
                     <input type="password" id="confirmPsw" placeholder="Entrer à nouveau votre mot de passe" maxlength=12 required>
-                    <p id="errorConfPSW">Entrer les même mots de passes !</p>
+                    <input type="checkbox" id="toggle-passwordConfirm" />
+                    <label for="toggle-passwordConfirm">Voir</label>
+                    <p id="errorConfPSW">Entrer les mêmes mots de passes !</p>
                 </div>
             </div>
-            <div class="showPW">
-                <input type="checkbox" id onclick="VerifPassword()">Afficher le mot de passe
-            </div>
             <div class="button">
-                <input type="submit" name="btn" value="Inscription">
+                <input type="submit" class="btnSubmit" name="btn" value="Inscription">
             </div>
         </form>
     </div>
-    <script src="script.js" type="text/javascript"></script>  
+    <script src="script.js" type="text/javascript"></script> 
+    </script>
 </body>
 </html>
