@@ -1,3 +1,5 @@
+
+
 *{
     margin: 0;
     padding: 0;
@@ -48,7 +50,7 @@ form .user-details .input-box{
 .user-details .input-box input{
     height: 35px;
     width: 100%;
-    border-radius: 3px;
+    border-radius: 5px;
     border: 1px solid #ccc
 }
 
@@ -59,7 +61,7 @@ form .user-details .input-box{
 #toggle-password + label {
     width: 20px;
     height: 20px;
-    margin-left: -32px;
+    margin-left: -35px;
     cursor: pointer;
  }
 
@@ -70,7 +72,7 @@ form .user-details .input-box{
 #toggle-passwordConfirm + label {
   width: 20px;
   height: 20px;
-  margin-left: -32px;
+  margin-left: -35px;
   cursor: pointer;
 }
 
@@ -79,8 +81,14 @@ form .user-details .input-box{
     margin-top: 20px;
     text-align: center;
     padding: 15px;
+    background-color: #9C76FA;
+    color: white;
+    cursor: pointer;
 }
 
+.btnSubmit:hover{
+    background-color: #D03CFA;
+}
 
 /* PARTIE POUR LES ERREURS */
 
@@ -168,17 +176,14 @@ form .user-details .input-box{
 
 @media (max-width: 584px){
     .container{
-        max-width: 100%;
+        max-width: 100%;;
     }
     form .user-details .input-box{
         margin-bottom: 15px;
         width: 100%;
     }
-    form .gender-details .category{
-        width: 100%;
-    }
     .container form .user-details{
-        max-height: 300px;
+        max-height: 500px;
         overflow-y: scroll;
     }
     .user-details::-webkit-scrollbar{
