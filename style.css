@@ -84,6 +84,7 @@ form .user-details .input-box{
     background-color: #9C76FA;
     color: white;
     cursor: pointer;
+    border: 1px solid black;
 }
 
 .btnSubmit:hover{

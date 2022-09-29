@@ -174,7 +174,7 @@ function displaySelection(response) {
     }
 }
 function selectAdresse(element) {
-    document.getElementById("adresse").value = element.properties.name + "\r\n" + element.properties.postcode + " " + element.properties.city;
+    document.getElementById("adresse").value = element.properties.name + "  " + element.properties.postcode + "  " + element.properties.city;
     select.style.display = "none";
     document.getElementById("resAdresse").value = element.properties.name;
     document.getElementById("CP").value = element.properties.postcode;
